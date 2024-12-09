@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/04/05 10:32:18.000.138,=C:\Users\Windows 10\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/04/25 21:42:46.000.173,=C:\Users\Windows 10\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/04/26 22:41:55.000.484,=C:\Users\Windows 10\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/11/11 22:25:11.000.908,=C:\Users\Windows 10\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/11/18 22:01:34.000.583,=C:\Users\Windows 10\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/12/06 16:05:45.000.840,=C:\Users\Windows 10\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/12/06 16:08:51.000.460,D:\Programas\CadastroPessoa\src\Principal.pas=C:\Users\Windows 10\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/12/06 16:08:51.000.460,D:\Programas\CadastroPessoa\src\Principal.dfm=C:\Users\Windows 10\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2024/12/06 16:17:56.000.299,=D:\Programas\CadastroPessoa\src\DM\uDM.pas</Transaction>
+    <Transaction>2024/12/06 16:20:23.000.256,D:\Programas\CadastroPessoa\GDC.dproj=C:\Users\Windows 10\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2024/12/06 16:22:47.000.129,=D:\Programas\CadastroPessoa\Unit1.pas</Transaction>
+    <Transaction>2024/12/06 16:34:48.000.770,D:\Programas\CadastroPessoa\src\Cliente\ViewCliente.pas=D:\Programas\CadastroPessoa\Unit1.pas</Transaction>
+    <Transaction>2024/12/06 16:34:48.000.770,D:\Programas\CadastroPessoa\src\Cliente\ViewCliente.dfm=D:\Programas\CadastroPessoa\Unit1.dfm</Transaction>
+    <Transaction>2024/12/06 18:54:30.000.480,=D:\Programas\CadastroPessoa\src\ViaCEP\VIACEP.pas</Transaction>
+    <Transaction>2024/12/06 19:35:21.000.329,=D:\Programas\CadastroPessoa\Unit1.pas</Transaction>
+    <Transaction>2024/12/06 19:44:03.000.061,D:\Programas\CadastroPessoa\src\Cliente\ControllerCliente.pas=D:\Programas\CadastroPessoa\Unit1.pas</Transaction>
+    <Transaction>2024/12/06 21:32:41.000.783,=D:\Programas\CadastroPessoa\Unit1.pas</Transaction>
+    <Transaction>2024/12/06 21:33:44.000.067,D:\Programas\CadastroPessoa\src\Cliente\ModelCliente.pas=D:\Programas\CadastroPessoa\Unit1.pas</Transaction>
+    <Transaction>2024/12/06 23:31:26.000.334,=D:\Programas\CadastroPessoa\Unit1.pas</Transaction>
+    <Transaction>2024/12/06 23:32:58.000.057,D:\Programas\CadastroPessoa\src\Cliente\EnumeradosTipoPessoas.pas=D:\Programas\CadastroPessoa\Unit1.pas</Transaction>
+    <Transaction>2024/12/06 23:41:22.000.437,D:\Programas\CadastroPessoa\src\Cliente\EnumeradosTipoPessoas.pas=</Transaction>
+    <Transaction>2024/12/07 14:14:03.000.516,=D:\Programas\CadastroPessoa\Unit1.pas</Transaction>
+    <Transaction>2024/12/07 14:22:28.000.110,D:\Programas\CadastroPessoa\src\Cliente\Pesquisar\ViewPesquisarCliente.pas=D:\Programas\CadastroPessoa\Unit1.pas</Transaction>
+    <Transaction>2024/12/07 14:22:28.000.110,D:\Programas\CadastroPessoa\src\Cliente\Pesquisar\ViewPesquisarCliente.dfm=D:\Programas\CadastroPessoa\Unit1.dfm</Transaction>
+    <Transaction>2024/12/07 14:25:54.000.212,=D:\Programas\CadastroPessoa\Unit1.pas</Transaction>
+    <Transaction>2024/12/07 14:26:14.000.145,D:\Programas\CadastroPessoa\src\Cliente\Pesquisar\ModelPesquisarCliente.pas=D:\Programas\CadastroPessoa\Unit1.pas</Transaction>
+    <Transaction>2024/12/07 14:27:36.000.603,=D:\Programas\CadastroPessoa\Unit1.pas</Transaction>
+    <Transaction>2024/12/07 14:28:00.000.825,D:\Programas\CadastroPessoa\src\Cliente\Pesquisar\ControllerPesquisarCliente.pas=D:\Programas\CadastroPessoa\Unit1.pas</Transaction>
+    <Transaction>2024/12/07 16:13:20.000.386,=D:\Programas\CadastroPessoa\Unit1.pas</Transaction>
+    <Transaction>2024/12/07 16:13:34.000.399,D:\Programas\CadastroPessoa\Unit1.pas=D:\Programas\CadastroPessoa\src\Cliente\Pesquisar\IViewPesquisarCliente.pas</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile iOSSimulator="iPhone5"/>
+	</ActiveMobileDevice>
+</BorlandProject>
