@@ -70,6 +70,23 @@ object frmPrincipal: TfrmPrincipal
       ExplicitTop = 88
       ExplicitWidth = 23
     end
+    object btnPedidos: TSpeedButton
+      AlignWithMargins = True
+      Left = 10
+      Top = 65
+      Width = 140
+      Height = 22
+      Margins.Left = 10
+      Margins.Top = 20
+      Margins.Right = 10
+      Align = alTop
+      Caption = '&Pedidos'
+      Flat = True
+      Transparent = False
+      StyleElements = [seFont, seClient]
+      OnClick = btnPedidosClick
+      ExplicitTop = 92
+    end
   end
   object popCadastros: TPopupMenu
     Left = 128
@@ -77,6 +94,26 @@ object frmPrincipal: TfrmPrincipal
     object Clientes1: TMenuItem
       Caption = '&Clientes'
       OnClick = Clientes1Click
+    end
+    object Unidade1: TMenuItem
+      Caption = '&Unidade'
+      OnClick = Unidade1Click
+    end
+    object Produto1: TMenuItem
+      Caption = '&Produtos'
+      OnClick = Produto1Click
+    end
+  end
+  object popPedidos: TPopupMenu
+    Left = 128
+    Top = 152
+    object Pedidos1: TMenuItem
+      Caption = 'Pedidos'
+      OnClick = Pedidos1Click
+    end
+    object PesuisarPedidos1: TMenuItem
+      Caption = 'Pesquisar Pedidos'
+      OnClick = PesuisarPedidos1Click
     end
   end
 end
