@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, FireDAC.Stan.Intf, FireDAC.Stan.Option,System.UITypes,
   FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
   FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, Data.DB,System.JSON,
   FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.Buttons, Vcl.Imaging.pngimage,
@@ -82,11 +82,12 @@ type
     procedure rgpTipoFJClick(Sender: TObject);
     procedure rgpTipoPessoaClick(Sender: TObject);
     procedure edtCEPExit(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     FController: TControllerCliente;  // Controller privado
     FTipo,
     FTipoPessoa: string;
-    FAcao: integer; /// 1 atualiza , 3 grava
+    FAcao: integer; /// 1 atualiza , 2 grava
     FCliente: TClienteModel;
     procedure ConsultarCEP(CEP: string);
   public
@@ -182,10 +183,8 @@ var
 begin
   ViaCEP := TViaCEP.Create;
   Try
+    JSON := ViaCEP.ConsultarCEP(CEP);
     try
-
-      JSON := ViaCEP.ConsultarCEP(CEP);
-
       if Assigned(JSON) then
         try
           // Lendo os dados do JSON retornado
@@ -231,6 +230,14 @@ begin
   btnPesquisarCEPClick(Sender);
 end;
 
+procedure TfrmCliente.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  case Key of
+    VK_ESCAPE:
+      close;
+  end;
+end;
+
 procedure TfrmCliente.btGravarClick(Sender: TObject);
 var
   NovoID: Integer;
@@ -265,12 +272,13 @@ begin
             else
               MessageDlg('Erro ao atualizar cliente!', TMsgDlgType.mtError, [TMsgDlgBtn.mbOK], 0);
           end;
-        else
-          // Ação de Gravar (Salvar)
+
+        2:// Ação de Gravar (Salvar)
           begin
             if FCliente.SalvarCliente(NovoID) then
             begin
               edtcodigo.Text := IntToStr(NovoID);
+              FController.LimparComponentes(Self);
               MessageDlg('Registro Salvo com Sucesso!', TMsgDlgType.mtConfirmation, [TMsgDlgBtn.mbOK], 0)
             end
             else
@@ -309,7 +317,9 @@ begin
   btAlterar.Enabled := false;
   btExcluir.Enabled := false;
   pnlDados.Enabled := true;
-
+  if FAcao <> 0 then
+   FController.LimparComponentes(Self);
+  FAcao := 2;
   edtDataNascimento.SetFocus;
 end;
 
@@ -326,6 +336,7 @@ begin
   Result := FController;
 end;
 
+
 procedure TfrmCliente.btExcluirClick(Sender: TObject);
 begin
   if edtCodigo.Text = '' then
@@ -340,7 +351,10 @@ begin
     FCliente.ID := StrToInt(edtCodigo.Text); // Carrega o ID para exclusão
 
     if FCliente.DeletarCliente then
-      ShowMessage('Cliente excluído com sucesso!')
+    begin
+      FController.LimparComponentes(Self);
+      ShowMessage('Cliente excluído com sucesso!') ;
+    end
     else
       ShowMessage('Erro ao excluir cliente.');
   finally

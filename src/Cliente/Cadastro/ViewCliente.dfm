@@ -13,6 +13,7 @@ object frmCliente: TfrmCliente
   Font.Style = []
   KeyPreview = True
   Position = poMainFormCenter
+  OnKeyDown = FormKeyDown
   TextHeight = 15
   object Panel1: TPanel
     Left = 0
@@ -686,7 +687,7 @@ object frmCliente: TfrmCliente
       Top = 28
       Width = 136
       Height = 28
-      Caption = '         &Cadastrar'
+      Caption = '&Novo'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
@@ -1019,7 +1020,7 @@ object frmCliente: TfrmCliente
       Top = 65
       Width = 136
       Height = 28
-      Caption = '         &Alterar'
+      Caption = '&Alterar'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
@@ -1715,7 +1716,7 @@ object frmCliente: TfrmCliente
       Top = 106
       Width = 136
       Height = 28
-      Caption = '         &Excluir'
+      Caption = '&Excluir'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
@@ -2336,7 +2337,7 @@ object frmCliente: TfrmCliente
       Top = 190
       Width = 130
       Height = 28
-      Caption = '         Ca&ncelar'
+      Caption = '     Ca&ncelar'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
@@ -2580,7 +2581,7 @@ object frmCliente: TfrmCliente
       Top = 150
       Width = 136
       Height = 28
-      Caption = '         &Gravar'
+      Caption = '&Gravar'
       Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite

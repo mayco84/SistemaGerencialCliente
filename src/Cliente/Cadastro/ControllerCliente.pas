@@ -4,8 +4,8 @@ interface
 
 uses
   System.SysUtils, System.StrUtils,  Vcl.Controls, System.Classes, Vcl.StdCtrls,Vcl.ExtCtrls,
-    Winapi.Windows, Winapi.Messages,System.Variants,  Vcl.Graphics,ModelCliente,
- Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids ;
+  Winapi.Windows, Winapi.Messages,System.Variants,  Vcl.Graphics,ModelCliente,Vcl.Mask,
+  Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids ;
 
 type
   TControllerCliente = class
@@ -19,7 +19,7 @@ type
     destructor Destroy; override;
     function ValidaCpfCnpj(Documento: string): Boolean;
     function CarregarClientePorID(ClienteID: Integer): TClienteModel;
-
+    procedure LimparComponentes(Container: TWinControl);  // Usa a interface, não a classe diretamente
     procedure ValidarCampos(const NomeCompleto, DataNascimento, RG, Documento, Telefone,
                               Email, Endereco, Bairro, Cidade, UF, Numero, CEP: TCustomEdit;
                               const TipoPessoa,FisicaJuridica: TRadioGroup);
@@ -211,13 +211,6 @@ procedure TControllerCliente.ValidarCampos(const NomeCompleto, DataNascimento, R
 var
   DataConvertida: TDateTime;
 begin
-  // Nome Completo
-  if NomeCompleto.Text = '' then
-  begin
-    NomeCompleto.SetFocus;
-    raise Exception.Create('O nome completo é obrigatório.');
-  end;
-
   // Data de Nascimento
   if not TryStrToDate(DataNascimento.Text, DataConvertida) then
   begin
@@ -225,11 +218,32 @@ begin
     raise Exception.Create('Data de nascimento inválida.');
   end;
 
+    // Tipo de Pessoa
+  if TipoPessoa.ItemIndex = -1 then
+  begin
+    TipoPessoa.SetFocus;
+    raise Exception.Create('É necessário selecionar o tipo de pessoa.');
+  end;
+
+  //Pessoa Fisisca ou Juridica
+  if FisicaJuridica.ItemIndex = -1 then
+  begin
+    FisicaJuridica.SetFocus;
+    raise Exception.Create('É necessário selecionar se é Física ou Jurídica.');
+  end;
+
+  // Nome Completo
+  if NomeCompleto.Text = '' then
+  begin
+    NomeCompleto.SetFocus;
+    raise Exception.Create('O nome completo é obrigatório.');
+  end;
+
   // RG
   if RG.Text = '' then
   begin
     RG.SetFocus;
-    raise Exception.Create('Campo obrigatório.');
+    raise Exception.Create('O R.G. é  obrigatório.');
   end;
 
   // Documento (CPF ou CNPJ)
@@ -265,6 +279,13 @@ begin
     raise Exception.Create('O endereço é obrigatório.');
   end;
 
+    // Número
+  if Numero.Text = '' then
+  begin
+    Numero.SetFocus;
+    raise Exception.Create('O número é obrigatório.');
+  end;
+
   // Bairro
   if Bairro.Text = '' then
   begin
@@ -286,32 +307,13 @@ begin
     raise Exception.Create('UF inválido. Informe uma sigla com exatamente 2 caracteres.');
   end;
 
-  // Número
-  if Numero.Text = '' then
-  begin
-    Numero.SetFocus;
-    raise Exception.Create('O número é obrigatório.');
-  end;
+
 
   // CEP
   if Length(RemoverCaracteres(CEP.Text)) <> 8 then
   begin
     CEP.SetFocus;
     raise Exception.Create('CEP inválido.');
-  end;
-
-  // Tipo de Pessoa
-  if TipoPessoa.ItemIndex = -1 then
-  begin
-    TipoPessoa.SetFocus;
-    raise Exception.Create('É necessário selecionar o tipo de pessoa.');
-  end;
-
-  //Pessoa Fisisca ou Juridica
-  if FisicaJuridica.ItemIndex = -1 then
-  begin
-    FisicaJuridica.SetFocus;
-    raise Exception.Create('É necessário selecionar se é Física ou Jurídica.');
   end;
 
 end;
@@ -323,6 +325,23 @@ begin
 
   if Result = nil then
     raise Exception.Create('Cliente não encontrado.');
+end;
+
+procedure TControllerCliente.LimparComponentes(Container: TWinControl);
+var
+  I: Integer;
+begin
+  for I := 0 to Container.ControlCount - 1 do
+  begin
+    if Container.Controls[I] is TEdit then
+      TEdit(Container.Controls[I]).Text := ''
+    else if Container.Controls[I] is TMaskEdit then
+      TMaskEdit(Container.Controls[I]).Text := ''
+    else if Container.Controls[I] is TRadioGroup then
+      TRadioGroup(Container.Controls[I]).ItemIndex := -1
+    else if Container.Controls[I] is TWinControl then
+      LimparComponentes(TWinControl(Container.Controls[I])); // Recursão
+  end;
 end;
 
 
