@@ -24,21 +24,24 @@ begin
     // Monta a consulta SQL inicial
     Query.SQL.Text := 'SELECT id, NomeCompleto, CPF, Telefone, Email FROM Cliente WHERE 1=1';
 
-    // Adiciona condições baseadas nos filtros
+    // Adiciona condições baseadas nos filtros  e os parâmetros para cada filtro aplicado
     if PorCodigo then
+    begin
       Query.SQL.Add('AND id LIKE :FiltroCodigo');
-    if PorNome then
-      Query.SQL.Add('AND NomeCompleto LIKE :FiltroNome');
-    if PorEmail then
-      Query.SQL.Add('AND Email LIKE :FiltroEmail');
-
-    // Define os parâmetros para cada filtro aplicado
-    if PorCodigo then
       Query.ParamByName('FiltroCodigo').AsString := '%' + Filtro + '%';
+    end;
+
     if PorNome then
+    begin
+      Query.SQL.Add('AND NomeCompleto LIKE :FiltroNome');
       Query.ParamByName('FiltroNome').AsString := '%' + Filtro + '%';
+    end;
+
     if PorEmail then
+    begin
+      Query.SQL.Add('AND Email LIKE :FiltroEmail');
       Query.ParamByName('FiltroEmail').AsString := '%' + Filtro + '%';
+    end;
 
     // Executa a consulta
     Query.Open;

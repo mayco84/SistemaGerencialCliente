@@ -3,18 +3,21 @@ unit ControllerPesquisarCliente;
 interface
 
 uses
-  System.SysUtils, ModelPesquisarCliente, Data.DB, IViewPesquisarCliente;  // Importa a interface
+  System.SysUtils, ModelPesquisarCliente, Data.DB, Vcl.Controls, Vcl.StdCtrls, Vcl.ExtCtrls,Vcl.Mask,
+  IViewPesquisarCliente;  // Importa a interface
 
 type
   TClienteController = class
   private
     FModel: TClienteModel;
-    FView: IViewPesquisarClientes;  // Usa a interface, não a classe diretamente
+    FView: IViewPesquisarClientes;
   public
     constructor Create(AView: IViewPesquisarClientes);  // Recebe a interface da View
     destructor Destroy; override;
     procedure PesquisarClientes(const Filtro: string; const PorCodigo, PorNome,EMail: Boolean);
+
   end;
+
 
 implementation
 
@@ -41,6 +44,9 @@ begin
   if Assigned(FView) then
     FView.AtualizarGrid(Clientes);  // Chama a função de atualização da Grid na View
 end;
+
+
+
 
 end.
 

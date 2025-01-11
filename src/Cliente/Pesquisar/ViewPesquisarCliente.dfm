@@ -15,6 +15,7 @@ object frmPesquisarClientes: TfrmPesquisarClientes
   Position = poMainFormCenter
   OnCreate = FormCreate
   OnDestroy = FormDestroy
+  OnKeyDown = FormKeyDown
   TextHeight = 15
   object Panel1: TPanel
     Left = 0
@@ -205,58 +206,17 @@ object frmPesquisarClientes: TfrmPesquisarClientes
       CharCase = ecUpperCase
       TabOrder = 0
     end
-    object gbxOpcoes: TGroupBox
-      Left = 16
-      Top = 12
-      Width = 169
-      Height = 83
-      Hint = 'Selecione ao menos UM filtro.'
-      Caption = ' Op'#231#245'es: '
-      ParentShowHint = False
-      ShowHint = True
+    object rgpOpcoes: TRadioGroup
+      Left = 0
+      Top = 5
+      Width = 156
+      Height = 90
+      Caption = 'Op'#231#245'es:'
+      Items.Strings = (
+        'C'#243'digo'
+        'Nome'
+        'E-mail')
       TabOrder = 1
-      object cbxCodigo: TCheckBox
-        Left = 12
-        Top = 17
-        Width = 97
-        Height = 17
-        Caption = 'C'#243'digo'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-        TabOrder = 0
-      end
-      object cbxNome: TCheckBox
-        Left = 12
-        Top = 37
-        Width = 97
-        Height = 17
-        Caption = 'Nome'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-        TabOrder = 1
-      end
-      object cbxEMail: TCheckBox
-        Left = 12
-        Top = 60
-        Width = 97
-        Height = 17
-        Caption = 'E-Mail'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-        TabOrder = 2
-      end
     end
   end
   object dbgClientes: TDBGrid

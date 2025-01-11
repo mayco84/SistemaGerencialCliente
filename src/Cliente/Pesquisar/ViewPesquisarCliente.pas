@@ -14,17 +14,15 @@ type
     btnEditar: TSpeedButton;
     btnPesquisar: TSpeedButton;
     edtPesquisar: TEdit;
-    gbxOpcoes: TGroupBox;
-    cbxCodigo: TCheckBox;
-    cbxNome: TCheckBox;
     dbgClientes: TDBGrid;
     dtsCliente: TDataSource;
-    cbxEMail: TCheckBox;
+    rgpOpcoes: TRadioGroup;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure btnPesquisarClick(Sender: TObject);
     procedure btnNovoClick(Sender: TObject);
     procedure dbgClientesDblClick(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     FController: TClienteController;  // Referência para a Controller
     procedure AtualizarGrid(ADataSet: TDataSet);  // Implementação do método da interface
@@ -49,6 +47,14 @@ begin
   FController.Free;  // Libera a memória da Controller
 end;
 
+procedure TfrmPesquisarClientes.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+begin
+  case Key of
+    VK_ESCAPE:
+      close;
+  end;
+end;
+
 procedure TfrmPesquisarClientes.btnNovoClick(Sender: TObject);
 var
   lTelaCliente : TfrmCliente;
@@ -67,10 +73,15 @@ var
   PorCodigo, PorNome,EMail: Boolean;
 begin
   Filtro := edtPesquisar.Text;
-  PorCodigo := cbxCodigo.Checked;
-  PorNome := cbxNome.Checked;
-  EMail := cbxEMail.Checked;
+  PorCodigo := False;
+  PorNome := False;
+  Email := False;
 
+  case rgpOpcoes.ItemIndex of
+    0: PorCodigo := True;
+    1: PorNome := True;
+    2: Email := True;
+  end;
 
   // Chama a Controller para buscar os dados
   FController.PesquisarClientes(Filtro, PorCodigo, PorNome,EMail);
@@ -116,10 +127,12 @@ begin
 
   // Atualiza a grid com os dados corretos
   dbgClientes.Columns[0].FieldName := 'id';
-  dbgClientes.Columns[1].FieldName := 'Nome Completo';
+  dbgClientes.Columns[1].FieldName := 'NomeCompleto';
+  dbgClientes.Columns[1].Title.Caption := 'Nome Completo';
   dbgClientes.Columns[2].FieldName := 'CPF';
   dbgClientes.Columns[3].FieldName := 'Telefone';
   dbgClientes.Columns[4].FieldName := 'Email';
+  dbgClientes.Columns[4].Title.Caption := 'E-mail';
 end;
 
 end.
