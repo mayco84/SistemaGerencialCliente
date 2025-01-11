@@ -132,8 +132,8 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="src\Cliente\Cadastro\ViewCliente.pas">
-            <Form>frmCliente</Form>
+        <DCCReference Include="src\UnidadesMedidas\Cadastro\ViewUnidadeMedida.pas">
+            <Form>frmUnidadeMedida</Form>
         </DCCReference>
         <DCCReference Include="src\ViaCEP\VIACEP.pas"/>
         <DCCReference Include="src\Cliente\Cadastro\ControllerCliente.pas"/>
@@ -145,6 +145,45 @@
         <DCCReference Include="src\Cliente\Pesquisar\ModelPesquisarCliente.pas"/>
         <DCCReference Include="src\Cliente\Pesquisar\ControllerPesquisarCliente.pas"/>
         <DCCReference Include="src\Cliente\Pesquisar\IViewPesquisarCliente.pas"/>
+        <DCCReference Include="src\UnidadesMedidas\Cadastro\ControllerUnidadeMedida.pas"/>
+        <DCCReference Include="src\UnidadesMedidas\Cadastro\ModelUnidadeMedida.pas"/>
+        <DCCReference Include="src\Cliente\Cadastro\ViewCliente.pas">
+            <Form>frmCliente</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\UnidadesMedidas\Pesquisar\ControllerPesquisarUnidadeMedida.pas"/>
+        <DCCReference Include="src\UnidadesMedidas\Pesquisar\ModelPesquisarUnidadeMedida.pas"/>
+        <DCCReference Include="src\UnidadesMedidas\Pesquisar\IViewPesquisarUnidadeMedida.pas"/>
+        <DCCReference Include="src\UnidadesMedidas\Pesquisar\ViewPesquisarUnidadeMedida.pas">
+            <Form>frmPesquisarUnidadeMedida</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\Produtos\Cadastro\ControllerProdutos.pas"/>
+        <DCCReference Include="src\Produtos\Cadastro\ModelProdutos.pas"/>
+        <DCCReference Include="src\Produtos\Cadastro\ViewProdutos.pas">
+            <Form>frmProdutos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\Produtos\Pesquisar\ControllerPesquisarProdutos.pas"/>
+        <DCCReference Include="src\Produtos\Pesquisar\IViewPesquisarProdutos.pas"/>
+        <DCCReference Include="src\Produtos\Pesquisar\ModelPesquisarProdutos.pas"/>
+        <DCCReference Include="src\Produtos\Pesquisar\ViewPesquisarProdutos.pas">
+            <Form>frmPesquisarProdutos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\Pedido\Cadastro\ViewPedidos.pas">
+            <Form>frmPedido</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\Pedido\Cadastro\ModelPedido.pas"/>
+        <DCCReference Include="src\Pedido\Cadastro\ControllerPedido.pas"/>
+        <DCCReference Include="src\Pedido\Pesquisar\ControllerPesquisarPedido.pas"/>
+        <DCCReference Include="src\Pedido\Pesquisar\IViewPesquisarPedido.pas"/>
+        <DCCReference Include="src\Pedido\Pesquisar\ModelPesquisarPedido.pas"/>
+        <DCCReference Include="src\Pedido\Pesquisar\ViewPesquisarPedido.pas">
+            <Form>frmPesquisarPedido</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
